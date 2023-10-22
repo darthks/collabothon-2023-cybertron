@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cybertron-app
+  namespace: cybertron-armored
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cybertron-app
+  template:
+    metadata:
+      labels:
+        app: cybertron-app
+    spec:
+      containers:
+      - name: cybertron-app
+        image: docker.io/fbozakov/cybertron-collabothon-unsigned:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
